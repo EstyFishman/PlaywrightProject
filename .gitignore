@@ -1,6 +1,9 @@
 .idea/
 .venv/
 test-results/
-tests/__pycache__/
+__pycache__/
 reports/
 test-reports/
+allure-results/
+allure-report/
+.env
