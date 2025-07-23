@@ -23,3 +23,11 @@ class InventoryPage:
     def go_to_cart(self):
         with allure.step("Going to the cart."):
             self.__go_to_cart.click()
+
+    def add_item(self, item_name):
+        with allure.step(f"Adding {item_name} to the cart."):
+            add_button = self.__page.locator(f"[data-test='add-to-cart-sauce-labs-{item_name}']").describe(
+                f"Add {item_name} to cart")
+            expect(add_button).to_be_visible()
+            expect(add_button).to_be_enabled()
+            add_button.click()

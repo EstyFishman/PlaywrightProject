@@ -23,3 +23,9 @@ class UsersRequestGenerator(RequestGenerator):
     # DELETE
     def delete_user(self, user_id: int):
         return self.delete(f"/users/{user_id}")
+
+    def login(self, data: dict):
+        return self.post("/login", data)
+
+    def get_resource(self):
+        return
