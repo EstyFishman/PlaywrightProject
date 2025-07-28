@@ -22,12 +22,14 @@ def test_user_name_or_password_is_incorrect(login_page, page) -> None:
     login_page.expect_error_message("Epic sadface: Username and password do not match any user in this service")
     attach_screenshot(page, "Screenshot test_user_name_or_password_is_incorrect")
 
+
 def test_user_name_and_password_are_missing(login_page, page) -> None:
     login_page.navigate_to()
     login_page.expect_login_credentials_visible()
     login_page.click_login_button()
     login_page.expect_error_message("Epic sadface: Username is required")
     attach_screenshot(page, "Screenshot test_user_name_and_password_are_missing")
+
 
 def test_password_is_missing(login_page, page) -> None:
     login_page.navigate_to()

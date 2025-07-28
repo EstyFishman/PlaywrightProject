@@ -31,5 +31,8 @@ def test_e2e_2(login_page, inventory_page, cart_page, checkout_page):
     inventory_page.go_to_cart()
     cart_page.checkout()
     checkout_page.fill_details("Annie", "Shay", "123456")
+    checkout_page.cancel()
+    cart_page.checkout()
+    checkout_page.fill_details("Annie", "Shay", "123456")
     checkout_page.continue_click()
     checkout_page.finish()

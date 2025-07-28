@@ -5,10 +5,11 @@ import allure
 class CheckoutPage:
     def __init__(self, page: Page):
         self.__first_name = page.locator("[data-test=\"firstName\"]").describe("First name")
+        # self.__first_name = page.get_by_test_id("firstName").describe("First name")
         self.__last_name = page.locator("[data-test=\"lastName\"]").describe("Last name")
         self.__postal_code = page.locator("[data-test=\"postalCode\"]").describe("Code")
         self.__massage_container = page.locator(".error-message-container").describe("Error")
-        # self.__cancel=
+        self.__cancel=page.locator("[data-test=\"cancel\"]").describe("Cancel button")
         self.__continue = page.locator("[data-test=\"continue\"]").describe("Continue")
         self.__subtotal_label = page.locator("[data-test=\"subtotal-label\"]").describe("Subtotal label")
         self.__tax_label = page.locator("[data-test=\"tax-label\"]").describe("")
@@ -26,7 +27,8 @@ class CheckoutPage:
             self.__continue.click()
 
     def cancel(self):
-        pass
+        with allure.step("Click cancel button"):
+            self.__cancel.click()
 
     def finish(self):
         with allure.step("Finish"):
